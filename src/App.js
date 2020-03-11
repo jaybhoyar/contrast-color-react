@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import randomColor from "./randomColor.js";
+import "./App.scss";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			pColor: randomColor()
+		};
+		console.log(this.state.pColor);
+	}
+	render() {
+		return (
+			<>
+				<div
+					style={{ backgroundColor: this.state.pColor }}
+					className="container"
+				>
+					<p style={{ color: this.state.pColor }}>vbej</p>
+				</div>
+			</>
+		);
+	}
 }
 
 export default App;
