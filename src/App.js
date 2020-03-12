@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import randomColorPair from "./randomColor.js";
 import "./App.scss";
 import Header from "./Header";
+import copy from "copy-to-clipboard";
 
 class App extends Component {
 	constructor(props) {
@@ -23,12 +24,8 @@ class App extends Component {
 	invertColor() {
 		this.setState({ pColor: this.state.pColor.reverse() });
 	}
-	clickToCopy() {
-		var range = document.createRange();
-		// range.selectNode(event.target);
-		window.getSelection().removeAllRanges(); // clear current selection
-		window.getSelection().addRange(range); // to select text
-		document.execCommand("copy");
+	clickToCopy(color) {
+		copy(color);
 	}
 	render() {
 		return (
@@ -45,6 +42,9 @@ class App extends Component {
 								backgroundColor: this.state.pColor[1]
 							}}
 							className="color_code"
+							onClick={() =>
+								this.clickToCopy(this.state.pColor[1])
+							}
 						>
 							{this.state.pColor[1]}
 						</button>
