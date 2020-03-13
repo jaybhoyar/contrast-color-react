@@ -77,6 +77,9 @@ class App extends Component {
 								backgroundColor: this.state.pColor[1]
 							}}
 							className="color_code"
+							onClick={() =>
+								this.clickToCopy(this.state.pColor[1])
+							}
 						>
 							{this.state.pColor[0]}
 						</button>
